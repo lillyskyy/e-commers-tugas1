@@ -61,6 +61,11 @@ pada DDP1 sebelumnya. Django juga didukung oleh dokumentasi yang lengkap dan
 komunitas besar yang aktif sehingga memudahkan pemula untuk menemukan tutorial atau bantuan. 
 
 ### KENAPA DJANGO ORM
+ORM adalah Object-Relational Mapping di mana bagian dari kerangka Django 
+yang bertanggung jawab untuk memetakan objek python ke struktur basisis data relational,
+memungkinkan pengembang untuk berinteraksi dengan basis data menggunkan objek python tanpa perlu menulis kueri SQL langsung. Sehingga dengan Django ORM memudahkan pengembang karena menyediakan antarmuka yang mudah digunakan untuk berinteraksi langsung
+dengan basis data, sehingga proses pengembangan menjadi lebih cepat
+
 
 
 
