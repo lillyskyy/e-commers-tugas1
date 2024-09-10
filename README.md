@@ -20,12 +20,12 @@
    ]`   
    kemudian membuka urls.py dan menambahkan
    `path('', include('main.urls')), `
-11. Membuat model product yaitu dengan cara menambahkan
+11. Membuat model product yaitu dengan cara menambahkan   
 ![image](https://github.com/user-attachments/assets/b6ce191b-eed1-4555-9b89-bb949f37e890)  
 pada code tersebut saya memberikan batasan batasan dari entri yang akan dimasukkan
-12. Membuat fungsi view dengan melengkapi entri sesuai dengan variable yang digunakan di model dan file htmlnya
+12. Membuat fungsi view dengan melengkapi entri sesuai dengan variable yang digunakan di model dan file htmlnya         
 ![image](https://github.com/user-attachments/assets/23dc9375-eaec-4f3f-80d1-6d572999bc13)
-13. Membuat template HTML dengan membuat folder template di dalam folder main
+13. Membuat template HTML dengan membuat folder template di dalam folder main   
 ![image](https://github.com/user-attachments/assets/4c164072-4a79-4756-bc5c-9153ef16c692)  
 pada code saya akan menampilkan: header, nama, harga, deskripsi singkat produk, era, kondisi, dan banyak stock yang tersisa
 14. Melakukan migrasi ke database:  
