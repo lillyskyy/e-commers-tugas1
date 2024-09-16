@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VintageVogue</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
     <h1>Welcome to MyVintageChoice</h1>
     
     <h5>Name: </h5>
@@ -16,14 +10,34 @@
     
     <h5>Description: </h5>
     <p>{{ description }}</p>
-    
-    <h5>Era: </h5>
-    <p>{{ era }}</p>
-    
-    <h5>Condition: </h5>
-    <p>{{ condition }}</p>
-    
-    <h5>Stock: </h5>
-    <p>{{ stock }}</p>
-</body>
-</html>
+        
+    {% if not additional_entries %}
+    <p>Belum ada data additional pada MyVintageChoice.</p>
+    {% else %}
+    <table>
+    <tr>
+        <th>Era</th>
+        <th>Time</th>
+        <th>Condition</th>
+        <th>Stock</th>
+    </tr>
+
+    {% comment %} Berikut cara memperlihatkan data mood di bawah baris ini 
+    {% endcomment %} 
+    {% for additional_entry in additional_entries %}
+    <tr>
+        <td>{{additional_entry.era}}</td>
+        <td>{{additional_entry.time}}</td>
+        <td>{{additional_entry.condition}}</td>
+        <td>{{additional_entry.stock}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+    {% endif %}
+
+    <br />
+
+    <a href="{% url 'main:create_additional_entry' %}">
+    <button>Add New Additional Entry</button>
+    </a>
+{% endblock content %}
