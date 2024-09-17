@@ -3,7 +3,13 @@ from main.forms import AdditionalEntryForm
 from main.models import AdditionalEntry
 from django.http import HttpResponse
 from django.core import serializers
+from django.forms import ModelForm
 
+class AdditionalEntryForm(ModelForm):
+    class Meta:
+        model = AdditionalEntry
+        fields = ["era", "condition", "stock"]
+        
 def show_main(request):
     additional_entries = AdditionalEntry.objects.all()
 
@@ -31,3 +37,15 @@ def create_additional_entry(request):
 def show_xml(request):
     data = AdditionalEntry.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+def show_json(request):
+    data = AdditionalEntry.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def show_xml_by_id(request, id):
+    data = AdditionalEntry.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+def show_json_by_id(request, id):
+    data = AdditionalEntry.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")

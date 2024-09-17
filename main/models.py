@@ -8,13 +8,10 @@ class AdditionalEntry(models.Model):
     era = models.CharField(max_length=50)
     time = models.DateField(auto_now_add=True)
     condition = models.TextField()
-    stock = models.IntegerField()
+    stock = models.PositiveIntegerField(default=1)
     name = models.CharField(max_length=200)
-    price = models.IntegerField()
+    price = models.IntegerField(default=0)
     description = models.TextField()
-    # era = models.CharField(max_length=50)  
-    # condition = models.CharField(max_length=50)  
-    # stock = models.IntegerField(default=1)
 
     def __str__(self):
         return self.name
