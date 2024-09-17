@@ -69,6 +69,9 @@ dengan basis data, sehingga proses pengembangan menjadi lebih cepat
 
 ## TUGAS 3
 
+### Data Delivery 
+Data delivery penting dalam pengeimplementasian sebuah platform karena dapat memastikan bahwa informasi atau data yang diperlukan dapat diakses secara cepat sehingga pengguna atau sistem dapat mengakses informasi yang mereka butuhkan tanpa adanya penundaan. Banyak platform terutama yang berbasis online atau cloud yang memerlukan pengiriman data secara real-time. Misalnya e-commers, transaksi dan sebagainya yang harus disampaikan secara real-time agar informasi yang ditampilkan kepada pengguna selalu data yang terbaru
+
 ### Mana Yang Lebih Baik JSON atau XML? Kenapa JSON Lebih Popular ??
 
 Menurut saya JSON lebih baik digunakan dalam beberapa kasus terutama dalam pengembangan web dan aplikasi dibandingkan dengan xml. JSON bersifat lebih ringkas dan mudah dibaca dibandingkan dengan XML, JSON menggunakan lebih sedikit karakter untuk merepresentasikan data yang sama yang membuat lebih efisien dalam ukuran data dan bandwidth. Struktur JSON mirip dengan objek dalam bahasa pemrograman seperti JavaScript. 
