@@ -1,15 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Welcome to MyVintageChoice</h1>
+
+    <h1 style="background-color:rgb(255, 99, 71); text-align: center;">Welcome to MyVintageChoice</h1> 
     
-    <h5>Name: </h5>
-    <p>{{ name }}</p>
+    <style>
+        .jarak {
+            margin-bottom: 10px; /* Atur jarak antar baris */
+        }
+    </style>
     
-    <h5>Price: </h5>
-    <p>{{ price }}</p>
-    
-    <h5>Description: </h5>
-    <p>{{ description }}</p>
+    <div class="jarak">
+        <h3 style="display: inline; font-weight: bold;">Name:</h3> <span>{{ name }}</span>
+    </div>
+    <div class="jarak">
+        <h3 style="display: inline; font-weight: bold;">Price:</h3> <span>{{ price }}</span>
+    </div>
+    <div class="jarak">
+        <h3 style="display: inline; font-weight: bold;">Description:</h3> <span>{{ description }}</span>
+    </div>
+
+    <!-- <h3 style="display: inline; font-weight: bold;">Name:  </h3> <span>{{ name }}</span><br>
+    <h3 style="display: inline; font-weight: bold;">Price:  </h3> <span>{{ price }}</span><br>
+    <h3 style="display: inline; font-weight: bold;">Description:</h3> <span>{{ description }}</span> -->
         
     {% if not additional_entries %}
     <p>Belum ada data additional pada MyVintageChoice.</p>
@@ -38,6 +50,22 @@
     <br />
 
     <a href="{% url 'main:create_additional_entry' %}">
-    <button>Add New Additional Entry</button>
+    <!-- <button>Add New Additional Entry</button> -->
+    <style>
+        .custom-button {
+            background-color: rgb(255, 99, 71);
+            color: white; /* Warna teks */
+            border: none; /* Menghilangkan border default */
+            padding: 10px 20px; /* Menambahkan padding */
+            cursor: pointer; /* Mengubah kursor saat hover */
+            border-radius: 5px; /* Membuat sudut tombol melengkung */
+        }
+    
+        .custom-button:hover {
+            background-color: rgb(200, 70, 50); /* Warna saat hover */
+        }
+    </style>
+    
+    <button class="custom-button">Add New Additional Entry</button>
     </a>
 {% endblock content %}
