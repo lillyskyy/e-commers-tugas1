@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-2k%$x5_fahgzw_in)o_@^6!+$1ri6z7fu3+&uj31zplnl+h8mk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "ananda-dwi31-ecommers.pbp.cs.ui.ac.id"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "ananda-dwi31-ecommers2.pbp.cs.ui.ac.id"]
 
 
 # Application definition
@@ -125,4 +125,4 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://ananda-dwi31-ecommers.pbp.cs.ui.ac.id/", "https://ananda-dwi31-ecommers.pbp.cs.ui.ac.id/"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://pbp.cs.ui.ac.id/ananda.dwi31/ecommers2", "https://pbp.cs.ui.ac.id/ananda.dwi31/ecommers2"]
