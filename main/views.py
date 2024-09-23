@@ -8,19 +8,17 @@ from django.forms import ModelForm
 class AdditionalEntryForm(ModelForm):
     class Meta:
         model = AdditionalEntry
-        fields = ["era", "condition", "stock"]
+        fields = ["product", "description", "stock"]
         
 def show_main(request):
     additional_entries = AdditionalEntry.objects.all()
 
     context = {
-        'name': 'Vintage Flower Dress',
-        'price': 'Rp 250.000',
-        'description': 'The Vintage Flower Dress is a timeless piece featuring a classic floral print.',
+        'name': 'Ananda Dwi Hanifa',
+        'npm': '2306165572',
+        'class': 'PBP A',
         'additional_entries': additional_entries
-        # 'era': '80s',
-        # 'condition': '60% ',
-        # 'stock': '5'
+
     }
     return render(request, 'main.html', context)
 

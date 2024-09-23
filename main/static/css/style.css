@@ -1,0 +1,31 @@
+.custom-button {
+    background-color: rgb(255, 99, 71);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.custom-button:hover {
+    background-color: rgb(200, 70, 50);
+}
+
+.jarak {
+    margin-bottom: 10px; /* Atur jarak antar baris */
+}
+
+.custom-submit {
+    background-color: rgb(255, 99, 71); /* Warna latar belakang */
+    color: white; /* Warna teks */
+    border: none; /* Menghilangkan border default */
+    padding: 10px 20px; /* Menambahkan padding */
+    cursor: pointer; /* Mengubah kursor saat hover */
+    border-radius: 5px; /* Membuat sudut tombol melengkung */
+}
+
+.custom-submit:hover {
+    background-color: rgb(200, 70, 50); /* Warna saat hover */
+}
+
+
