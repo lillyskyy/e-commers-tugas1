@@ -97,10 +97,10 @@ def logout_user(request):
 
 def edit_additional(request, id):
     # Get mood entry berdasarkan id
-    mood = AdditionalEntry.objects.get(pk = id)
+    additional = AdditionalEntry.objects.get(pk = id)
 
     # Set mood entry sebagai instance dari form
-    form = AdditionalEntryForm(request.POST or None, instance=mood)
+    form = AdditionalEntryForm(request.POST or None, instance=additional)
 
     if form.is_valid() and request.method == "POST":
         # Simpan form dan kembali ke halaman awal
@@ -108,7 +108,7 @@ def edit_additional(request, id):
         return HttpResponseRedirect(reverse('main:show_main'))
 
     context = {'form': form}
-    return render(request, "edit_mood.html", context)
+    return render(request, "edit_additional.html", context)
 
 def delete_additional(request, id):
     # Get mood berdasarkan id
