@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from main.forms import AdditionalEntryForm
 from main.models import AdditionalEntry
 from django.http import HttpResponse
@@ -16,7 +16,7 @@ from django.urls import reverse
 class AdditionalEntryForm(ModelForm):
     class Meta:
         model = AdditionalEntry
-        fields = ["product", "description", "stock"]
+        fields = ["product", "description", "stock", "price"]
 
 @login_required(login_url='/login')       
 def show_main(request):
@@ -27,7 +27,7 @@ def show_main(request):
         'npm': '2306165572',
         'class': 'PBP A',
         'additional_entries': additional_entries,
-        'last_login': request.COOKIES['last_login'],
+        'last_login': request.COOKIES.get('last_login', 'Tidak tersedia'),
 
     }
     return render(request, 'main.html', context)
@@ -93,3 +93,27 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+
+def edit_additional(request, id):
+    # Get mood entry berdasarkan id
+    mood = AdditionalEntry.objects.get(pk = id)
+
+    # Set mood entry sebagai instance dari form
+    form = AdditionalEntryForm(request.POST or None, instance=mood)
+
+    if form.is_valid() and request.method == "POST":
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_mood.html", context)
+
+def delete_additional(request, id):
+    # Get mood berdasarkan id
+    additional = AdditionalEntry.objects.get(pk = id)
+    # Hapus mood
+    additional.delete()
+    # Kembali ke halaman awal
+    return HttpResponseRedirect(reverse('main:show_main'))

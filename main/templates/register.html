@@ -1,32 +1,63 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block meta %}
-<title>Register</title>
+<title>Sign up</title>
 {% endblock meta %}
 
 {% block content %}
+<div class="min-h-screen flex items-center justify-center bg-white py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-4xl w-full space-y-8">
+    <div class="flex bg-white rounded-lg shadow-lg overflow-hidden">
+      <!-- Left side with image -->
+      <div class="w-1/2">
+        <img src="{% static 'images/register.jpg' %}" alt="Phone Sign Up" class="w-full h-full object-cover">
+      </div>
 
-<div class="login">
-  <h1>Register</h1>
+      <!-- Right side with form -->
+      <div class="w-1/2 p-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-2">
+          Sign up
+        </h2>
+        <p class="text-sm text-gray-600 mb-6">
+          Let's get you all set up so you can access your personal account.
+        </p>
 
-  <form method="POST">
-    {% csrf_token %}
-    <table>
-      {{ form.as_table }}
-      <tr>
-        <td></td>
-        <td><input type="submit" name="submit" value="Daftar" /></td>
-      </tr>
-    </table>
-  </form>
+        <form class="space-y-4" method="POST">
+          {% csrf_token %}
+          
+          <div>
+            <label for="{{ form.username.id_for_label }}" class="block text-sm font-medium text-gray-700">Username</label>
+            {{ form.username }}
+          </div>
 
-  {% if messages %}
-  <ul>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %}
+          <div>
+            <label for="{{ form.password1.id_for_label }}" class="block text-sm font-medium text-gray-700">Password</label>
+            {{ form.password1 }}
+          </div>
+
+          <div>
+            <label for="{{ form.password2.id_for_label }}" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+            {{ form.password2 }}
+          </div>
+
+          <div>
+            <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+              Create account
+            </button>
+          </div>
+        </form>
+
+        <div class="text-center mt-4">
+          <p class="text-sm text-gray-600">
+            Already have an account?
+            <a href="{% url 'main:login' %}" class="font-medium text-blue-600 hover:text-blue-500">
+              Login
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 {% endblock content %}

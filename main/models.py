@@ -11,9 +11,7 @@ class AdditionalEntry(models.Model):
     time = models.DateField(auto_now_add=True)
     description = models.TextField()
     stock = models.PositiveIntegerField()
-    # name = models.CharField(max_length=200)
-    # price = models.IntegerField(default=0)
-    # description = models.TextField()
+    price = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name

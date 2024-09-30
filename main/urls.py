@@ -4,6 +4,8 @@ from main.views import show_main, create_additional_entry, show_xml, show_json, 
 from main.views import register
 from main.views import login_user
 from main.views import logout_user
+from main.views import edit_additional
+from main.views import delete_additional
 
 app_name = 'main'
 
@@ -17,4 +19,6 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
+    path('edit-additional/<uuid:id>', edit_additional, name='edit_additional'),
+    path('delete/<uuid:id>', delete_additional, name='delete_additional'),
 ]
