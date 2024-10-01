@@ -131,7 +131,7 @@ csrf_token adalah token keamanan yang digunakan dalam form Django untuk melindun
 ![Screenshot (369)](https://github.com/user-attachments/assets/74f7ca67-a009-44e4-9925-44c7b372faaa)
 
 
-## TUGAS 2
+## TUGAS 4
 
 ### Apa perbedaan antara HttpResponseRedirect() dan redirect()
 HttpResponseRedirect adalah kelas yang mengembalikan respons HTTP dengan status kode 302 (Found) dan header location yang diatur ke URL tujuan. HttpResponseRedirect memerlukan URL absolut atau relatif sebagai argumen dan hanya menerima URL sebagai argumen. HttoRespinseRedirert cocok digunakan jika pengguna memerlukan kontrol lebih langsung atas respons HTTP atau jika pengguna bekerja dalam konteks di mana redirect tidak tersedia. Sedangkan redirect adalah fungsi utilitas yang lebih mudah digunakan dan fleksibel. Fungsi ini dapat menerima berbagai jenis argumen, seperti URL absolut, URL relatif, bana URL, atau bahkan objek model, dan secara otomatis mengonversinya menjadi HttpResponseRedirect
@@ -194,6 +194,123 @@ Django mengingat pengguna yang telah login menggunakan mekanisme sesi (sessions)
 - sehingga akan menampilkan seperti ini
 ![image](https://github.com/user-attachments/assets/352a83ac-7214-4f9d-ad26-08689c5a659a)
 ![image](https://github.com/user-attachments/assets/0c96e976-b905-427b-aa88-d9954b621831)
+
+
+## TUGAS 4
+
+### urutan prioritas pengambilan CSS selector
+Ketika beberapa CSS selector diterapkan pada suatu elemen HTML, browser menggunakan sistem prioritas yang disebut "specificity" untuk menentukan aturan mana yang akan diterapkan. Urutan prioritas ini dimulai dari yang paling spesifik hingga yang paling umum. Selector dengan ID memiliki prioritas tertinggi, diikuti oleh selector kelas dan atribut. Selector elemen dan pseudo-elemen memiliki prioritas terendah. Jika dua selector memiliki specificity yang sama, aturan yang ditulis terakhir dalam stylesheet akan diterapkan. Selector inline (yang ditulis langsung pada atribut style elemen HTML) memiliki prioritas tertinggi, mengalahkan semua selector eksternal. Penggunaan !important pada deklarasi properti CSS akan memberikan prioritas tertinggi, namun penggunaannya tidak dianjurkan karena dapat membuat kode sulit dipelihara. Pemahaman tentang urutan prioritas ini sangat penting bagi pengembang web untuk menghindari konflik style dan memastikan tampilan yang konsisten pada halaman web mereka.
+
+### Responsive Design
+Responsive design telah menjadi konsep yang sangat penting dalam pengembangan aplikasi web karena beberapa alasan, yaitu:
+1. Pengguna mengakses web melalui berbagai perangkat dengan ukuran layar yang berbeda-beda, mulai dari smartphone, tablet, laptop, hingga desktop. Responsive design memungkinkan satu situs web untuk beradaptasi dan tampil dengan baik di semua perangkat ini.
+2. Pengalaman Pengguna: Dengan responsive design, pengguna mendapatkan pengalaman yang konsisten dan optimal terlepas dari perangkat yang mereka gunakan. Ini meningkatkan kepuasan pengguna dan mengurangi tingkat bounce rate.
+3. Google dan mesin pencari lainnya memberikan preferensi pada situs web yang mobile-friendly dalam hasil pencarian mereka. Responsive design membantu meningkatkan peringkat SEO situs web.
+
+Contoh aplikasi yang sudah menerapkan responsive design:
+1. Amazon: Situs e-commerce ini menyesuaikan tata letak dan ukuran elemennya dengan baik untuk berbagai ukuran layar.
+2. The New York Times: Situs berita ini memiliki desain yang responsif, menyajikan konten dengan cara yang optimal untuk setiap perangkat.
+
+### Margin, Border, dan Padding
+1. Margin
+- Margin adalah ruang di luar batas elemen, yang memisahkan elemen tersebut dari elemen-elemen lain di sekitarnya.
+- Margin bersifat transparan dan tidak memiliki warna atau latar belakang.
+- Digunakan untuk mengatur jarak antar elemen.
+```
+  .element {
+     margin: 10px;                /* Semua sisi */
+     margin: 10px 20px;           /* Atas-bawah | Kiri-kanan */
+     margin: 10px 20px 15px 25px; /* Atas | Kanan | Bawah | Kiri */
+     margin-top: 10px;            /* Sisi spesifik */
+   }
+```
+
+2. Border
+- Border adalah garis yang mengelilingi elemen, terletak di antara margin dan padding.
+- Border dapat memiliki warna, gaya (solid, dashed, dll.), dan ketebalan.
+- Digunakan untuk memberi batas visual pada elemen.
+```
+ .element {
+     border: 1px solid black;     /* Lebar | Gaya | Warna */
+     border-width: 2px;           /* Lebar */
+     border-style: dashed;        /* Gaya */
+     border-color: red;           /* Warna */
+     border-top: 1px solid blue;  /* Sisi spesifik */
+   }
+```
+3. Padding
+- Padding adalah ruang di dalam elemen, antara batas elemen (border) dan kontennya.
+- Padding mempengaruhi ukuran elemen dan dapat memiliki warna latar belakang.
+- Digunakan untuk memberi ruang di sekitar konten dalam elemen.
+```
+   .element {
+     padding: 10px;               /* Semua sisi */
+     padding: 10px 20px;          /* Atas-bawah | Kiri-kanan */
+     padding: 10px 20px 15px 25px; /* Atas | Kanan | Bawah | Kiri */
+     padding-left: 15px;          /* Sisi spesifik */
+   }
+
+```
+
+### Flex Box dan Grid Layout
+Flexbox dan Grid Layout adalah dua sistem tata letak modern dalam CSS yang menawarkan cara yang lebih efisien dan fleksibel untuk mengatur elemen-elemen dalam sebuah halaman web. Berikut penjelasan tentang kedua konsep tersebut beserta kegunaannya:
+1.Flexbox
+Flexbox adalah model tata letak satu dimensi yang dirancang untuk mengatur elemen-elemen dalam sebuah container secara fleksibel, baik dalam arah horizontal maupun vertikal.
+- Container flex (parent) dan item flex (children)
+- Main axis (sumbu utama) dan cross axis (sumbu silang)
+- Properti untuk container (display: flex, flex-direction, justify-content, align-items) dan item (flex-grow, flex-shrink, flex-basis)
+kegunaan:
+a. Membuat layout yang responsif dan fleksibel
+b. Mengatur distribusi ruang antar item secara dinamis
+c. Menyelaraskan item-item dalam satu baris atau kolom
+d. Mengubah urutan tampilan item tanpa mengubah HTML
+```
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item {
+  flex: 1;
+}
+```
+
+2. Grid Layout
+Grid Layout adalah sistem tata letak dua dimensi yang memungkinkan pengaturan elemen-elemen dalam baris dan kolom secara bersamaan.
+- Grid container dan grid items
+- Grid lines, tracks, cells, dan areas
+- Properti untuk container (display: grid, grid-template-columns, grid-template-rows) dan item (grid-column, grid-row)
+kegunaan:
+a. Membuat layout kompleks dengan mudah
+b. Mengatur elemen dalam grid yang terstruktur
+c. Menciptakan desain responsif yang konsisten
+```
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.item {
+  grid-column: span 2;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
