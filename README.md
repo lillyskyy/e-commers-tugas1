@@ -131,7 +131,69 @@ csrf_token adalah token keamanan yang digunakan dalam form Django untuk melindun
 ![Screenshot (369)](https://github.com/user-attachments/assets/74f7ca67-a009-44e4-9925-44c7b372faaa)
 
 
+## TUGAS 2
 
+### Apa perbedaan antara HttpResponseRedirect() dan redirect()
+HttpResponseRedirect adalah kelas yang mengembalikan respons HTTP dengan status kode 302 (Found) dan header location yang diatur ke URL tujuan. HttpResponseRedirect memerlukan URL absolut atau relatif sebagai argumen dan hanya menerima URL sebagai argumen. HttoRespinseRedirert cocok digunakan jika pengguna memerlukan kontrol lebih langsung atas respons HTTP atau jika pengguna bekerja dalam konteks di mana redirect tidak tersedia. Sedangkan redirect adalah fungsi utilitas yang lebih mudah digunakan dan fleksibel. Fungsi ini dapat menerima berbagai jenis argumen, seperti URL absolut, URL relatif, bana URL, atau bahkan objek model, dan secara otomatis mengonversinya menjadi HttpResponseRedirect
+
+### Cara Kerja Penghubungan Model Product dengan User
+Bertujuan sehingga pengguna yang sedang terotorisasi hanya dapat melihat data additional entries yang telah dibuat sendiri. Penghubungan model Product dengan model User di django dilakukan melalui akses penggunaan ForeignKey pada model Product. Dalam model Product, terdapat field user yang merupakan ForeignKey ke model User, dengan parameter on_delete=models.CASCADE dan related_name=’product’ . Parameter on_delete=models.CASCADE memastikan bahwa jika pengguna dihapus, semua produk yang terkait dengan pengguna tersebut juga akan dihapus. Parameter related_name=’products’ memungkinkan akses terbalik dari objek User ke semua produk yang dimiliki oleh pengguna tersebut melalui user.products.all(). Ketika pengguna membuat atau mengedit produk, field user diisi dengan pengguna yang sedang login (request.user). Dengan demikian, setiap produk yang dibuat atau diedit  akan terkait dengan pengguna yang membuat. Hal ini memungkinkan aplikasi untuk mengelola dan menampilkan produk berdasarkan pengguna yang terkait, serta memastikan integritas data dengan menghapus produk yang terkait ketika pengguna dihapus
+
+### Perbdeaan authentication dan authorization
+Authentication adalah proses verifikasi identitas pengguna di mana memastikan bahwa pengguna adalah siapa yang mereka klaim. Saat pengguna login, sistem memeriksa kredensial (username dan password) yang diberikan terhadap data yang tersimpan di database. Jika kredensial valid, maka pengguna dianggap terautentikasi. Sedangkan Authorization adalah proses menentukan hak akses pengguna yang telah terautentikasi. Ini menentukan apa yang dapat dilakukan atau diakses oleh pengguna. Setelah pengguna terautentikasi, sistem akan memeriksa hak akses pengguna untuk menentukan apa yang dapat mereka lakukan atau akses dalam aplikasi.
+
+Django mengimplementasikan authentication melalui model User, form autentikasi seperti AuthenticationForm, dan view bawaan untuk login dan logout. Middleware AuthenticationMiddleware mengaitkan pengguna yang terautentikasi dengan objek request.user. Untuk authorization, Django menggunakan sistem izin (permissions) dan grup pengguna (groups) yang memungkinkan pengelolaan hak akses pengguna. Decorator seperti login_required memastikan bahwa hanya pengguna yang terautentikasi yang dapat mengakses view tertentu. Dengan demikian, Django memastikan bahwa hanya pengguna yang terautentikasi yang dapat mengakses bagian tertentu dari aplikasi dan bahwa mereka hanya dapat melakukan tindakan yang diizinkan berdasarkan hak akses mereka.
+
+### Cookies
+Django mengingat pengguna yang telah login menggunakan mekanisme sesi (sessions) dan cookies. Ketika pengguna berhasil login, Django membuat entri sesi di backend sesi (seperti database, cache, atau file) yang menyimpan informasi tentang pengguna tersebut. Django kemudian mengirimkan cookie sesi ke browser pengguna, yang berisi ID sesi unik. Cookie ini biasanya disebut sessionid. Middleware SessionMiddleware memeriksa cookie sesi pada setiap permintaan dan memuat data sesi yang sesuai dari backend sesi. Jika cookie sesi valid, Django mengaitkan data sesi dengan objek request.session, dan middleware AuthenticationMiddleware mengaitkan pengguna yang terautentikasi dengan objek request.user. Selain mengelola sesi, cookies juga digunakan untuk menyimpan preferensi pengguna, melacak aktivitas pengguna untuk analitik, dan personalisasi konten. Namun, tidak semua cookies aman digunakan. Cookies yang aman harus menggunakan atribut Secure untuk memastikan bahwa mereka hanya dikirim melalui koneksi HTTPS, HttpOnly untuk mencegah akses melalui JavaScript dan melindungi dari serangan cross-site scripting (XSS), serta SameSite untuk mencegah serangan cross-site request forgery (CSRF). Data sensitif tidak boleh disimpan dalam cookies tanpa enkripsi untuk melindungi informasi dari akses yang tidak sah. Dengan mempertimbangkan aspek keamanan ini, cookies dapat digunakan secara efektif dan aman dalam aplikasi web.
+
+### Implementasi Checklist
+#### Membuat Fungsi Register
+- mengaktifkan terlebih dahulu environment
+- kemudian pada file view.py yang berada di directori main, ditambahkan import UserCreationForm dan import messages.
+- kemudian pada bagian bawahnya ditambahkan  fungsi register yang berfungsi untuk menghasilkan formulir registrasi secara otomatis dan menghasilkan akun pengguna ketika data di submit
+- pada template perlu ditambahkan file baru yaitu register.html 
+- pada file urls.py yang berada di main perlu ditambahkan import register dan pada bagian urlpatterns ditambahkan path register    
+![image](https://github.com/user-attachments/assets/382db29b-9cc0-4f9d-8026-9812d918292e)
+![image](https://github.com/user-attachments/assets/6488e80b-9e46-4eda-8a0a-b0d88e93a3a7)
+
+
+#### Membuat Fungsi Login
+- buka views.py yang berada di main kemudian tambahan import authenticate. login, dan AuthenticatuonForm untuk melakukan autentikasi dan login jika autentikasi berhasil
+- masih di views.py tambahkan fungsi login_user
+- pada directori main buat file baru bernama login.html
+- tambahkan import login_user dan path login pada urls.py    
+![image](https://github.com/user-attachments/assets/ea9b23a4-bb29-4003-816c-eed0b883c65a)
+![image](https://github.com/user-attachments/assets/79d47eee-4561-4a09-ae6a-0d9afca080f5)
+
+
+#### Membuat Fungsi Logout
+- buka veiws.py tambahkan import logout dan  tambahkan fungsi logout_user untuk melakukan mekanisme logout
+- pada main.html dan tambahkan button logout
+- pada urls.py tambahkan import logout_user dan tambahkan path logout   
+![image](https://github.com/user-attachments/assets/603c582b-fe09-493b-bf35-2077436ccf3b)
+![image](https://github.com/user-attachments/assets/a4f18197-f3ba-4a55-b1ac-87b02a468a49)
+
+
+
+#### Menghubungkan Product dengan User
+- pada models.py perlu menambahkan import user dan pada class AdditionalEntry menambahkan fungsi untuk menghubungkan satu additional entry dengan satu user di mana sebuah additional entry terasosikan dengan seorang user
+- mengupdate views.py dengan menambahkan parameter commit = false untuk mencegah django tidak langsung menyimpan object
+- migrasi dengan python manage.py makemigrations
+- python manage.py migrate
+
+#### Menerapkan Cookies last_login
+- pada bagian file views.py perlu menambahkan import HttpResponeRedirect, reverse, dan datetime
+- dan pada fungsi login_user yang telah dibuat sebelumnya bagian if form.is_valid() diupdate
+
+#### Membuat Dua Akun Pengguna dengan Tiga Data Dummy
+- aktifkan environment terlebih dahulu 
+- kemudian runserver dengan python manage.py runserver
+- klik register now kemudian buatlah dua akun, satu persatu 
+- kemudian akan balik ke halaman login, login satu persatu akun, setiap login masukan tiga data ke additional entry kemudian lakukan seterusnya 
+- sehingga akan menampilkan seperti ini
+![image](https://github.com/user-attachments/assets/352a83ac-7214-4f9d-ad26-08689c5a659a)
+![image](https://github.com/user-attachments/assets/0c96e976-b905-427b-aa88-d9954b621831)
 
 
 
