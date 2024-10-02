@@ -208,8 +208,16 @@ Responsive design telah menjadi konsep yang sangat penting dalam pengembangan ap
 3. Google dan mesin pencari lainnya memberikan preferensi pada situs web yang mobile-friendly dalam hasil pencarian mereka. Responsive design membantu meningkatkan peringkat SEO situs web.
 
 Contoh aplikasi yang sudah menerapkan responsive design:
-1. Amazon: Situs e-commerce ini menyesuaikan tata letak dan ukuran elemennya dengan baik untuk berbagai ukuran layar.
-2. The New York Times: Situs berita ini memiliki desain yang responsif, menyajikan konten dengan cara yang optimal untuk setiap perangkat.
+1. Dropbox
+Halaman web Dropbox sangat adaptif terhadap ukuran layar yang berbeda, dengan tata letak yang menyesuaikan tanpa mengorbankan fungsionalitas atau estetika.
+![image](https://github.com/user-attachments/assets/7d963b44-5aa1-4b28-ab68-aa74f8412f05)
+![image](https://github.com/user-attachments/assets/2d04d0bf-0764-4f67-82c1-cdc0df414734)
+
+2. Smashing Magazine
+Situs web ini dikenal dengan desain responsif yang dioptimalkan untuk pembaca dari berbagai perangkat, baik desktop maupun perangkat seluler.
+![image](https://github.com/user-attachments/assets/87b07555-6f6a-481c-8991-2da82f326426)
+![image](https://github.com/user-attachments/assets/1e3a5fad-3522-4649-9ce8-18b49282767a)
+
 
 ### Margin, Border, dan Padding
 1. Margin
