@@ -298,6 +298,41 @@ c. Menciptakan desain responsif yang konsisten
 ```
 
 
+## IMPLEMENTASI CHECK LIST
+### COSTUM LOGIN REGISTER
+
+Pembuatan style login pada kode ini mengikuti alur yang terstruktur dan estetis, memanfaatkan kerangka kerja Tailwind CSS untuk styling yang efisien. Proses dimulai dengan membuat kontainer utama yang mengisi seluruh tinggi layar, menggunakan latar belakang berwarna merah muda. Di dalam kontainer ini, ditambahkan sebuah kotak putih dengan bayangan dan sudut melengkung ditempatkan di tengah.
+
+Kotak login dibagi menjadi dua bagian yang seimbang. Bagian pertama untuk form login atau register, dimulai dengan judul yang menegaskan identitas brand. Form login atau register menggunakan spacing yang konsisten dan label yang jelas untuk meningkatkan kegunaan. Input field diberi styling yang membuatnya mudah dibaca dan diinteraksi, dengan efek fokus.
+
+Tombol login atau register menggunakan warna biru yang kontras dengan latar belakang putih dan efek hover untuk feedback visual. Di bawah form, sebuah link untuk registrasi ditempatkan dengan subtle, memberikan opsi bagi pengguna baru. Bagian lainnya kotak diisi dengan gambar, memberikan keseimbangan visual.
+
+### COSTUM CARD
+Layout kartu dibagi menjadi beberapa bagian yang terorganisir. Bagian atas menampilkan nama produk dan stok dengan warna kontras, diikuti oleh deskripsi produk di bagian tengah, dan informasi harga di bagian bawah. Tombol Edit dan Delete ditempatkan di sudut kanan atas untuk akses cepat, dengan warna yang berbeda (kuning untuk Edit, merah untuk Delete) untuk membedakan fungsinya dengan jelas.
+
+Responsivitas dalam desain ini diimplementasikan melalui penggunaan kelas-kelas Tailwind yang fleksibel. Meskipun tidak ada breakpoint eksplisit yang ditentukan untuk perangkat berbeda, beberapa aspek desain secara inheren responsif:
+1. Penggunaan `w-full` pada elemen-elemen memastikan mereka mengisi lebar penuh dari container induknya, yang akan menyesuaikan pada berbagai ukuran layar.
+2. Padding dan margin yang konsisten (`p-6`, `mb-2`, dll.) membantu mempertahankan tata letak yang rapi pada berbagai ukuran layar.
+3. Penggunaan `text-sm`, `text-lg`, dan `text-2xl` untuk ukuran font memungkinkan skalabilitas teks yang baik.
+4. Kelas `break-inside-avoid` membantu dalam penempatan kartu dalam layout masonry atau grid, mencegah pemisahan konten kartu.
+5. Transisi dan efek hover (`group-hover:scale-105`) memberikan interaktivitas yang halus, yang berfungsi baik di desktop maupun perangkat sentuh.
+
+IMPLEMENTASI EDIT DELETE
+- Button ditempatkan dalam sebuah div dengan kelas `absolute top-3 right-3`, yang memposisikan mereka di pojok kanan atas kartu.
+- Menggunakan `flex` dan `space-x-2` untuk menyusun button secara horizontal dengan jarak antar button.
+- `z-10` memastikan button tetap di atas elemen lain dalam kartu.
+- Kedua button menggunakan kelas `rounded-md` untuk sudut melengkung.
+- `px-3 py-1` memberikan padding horizontal dan vertikal. 
+- Button edit menggunakan `bg-yellow-400` untuk warna latar kuning.  hover: bg-yellow-500 memberikan efek hover dengan warna kuning yang lebih gelap
+- Button Delete menggunakan `bg-red-400` untuk warna latar merah.  `additional_entry.pk` digunakan untuk mengidentifikasi item spesifik yang akan diedit atau dihapus.
+
+### RESPONSIVE NAVBAR
+- `hidden md:flex` pada div menu utama: Menyembunyikan menu pada layar kecil, menampilkannya sebagai flex container pada layar medium ke atas.
+- `md:hidden` pada div tombol menu mobile: Menampilkan tombol hamburger hanya pada layar kecil, menyembunyikannya pada layar medium ke atas.
+- Penggunaan `flex` dan `justify-between` untuk mengatur tata letak elemen navbar secara horizontal dan memberikan ruang di antara logo dan menu.
+- Penggunaan `px-4 sm:px-6 lg:px-8` untuk menyesuaikan padding horizontal pada berbagai ukuran layar.
+- Penggunaan kelas yang konsisten untuk tombol (seperti `rounded`, `transition duration-300`) memastikan tampilan yang seragam di semua ukuran layar.
+- Penggunaan `fixed top-0 left-0 z-40 w-screen` memastikan navbar tetap terlihat di atas konten lain saat di-scroll, konsisten di semua ukuran layar.
 
 
 
