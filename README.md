@@ -343,9 +343,9 @@ IMPLEMENTASI EDIT DELETE
 - Penggunaan `fixed top-0 left-0 z-40 w-screen` memastikan navbar tetap terlihat di atas konten lain saat di-scroll, konsisten di semua ukuran layar.
 
 
-##TUGAS 6
+## TUGAS 6
 
-###Manfaat dari penggunaan JavaScripts dalam pengembangan web
+### Manfaat dari penggunaan JavaScripts dalam pengembangan web
 JavaScript memiliki peran yang sangat penting dalam pengembangan aplikasi web modern. Manfaat utamanya terletak pada kemampuannya untuk meningkatkan interaktivitas dan responsivitas halaman web. Dengan JavaScript, pengembang dapat menciptakan antarmuka pengguna yang dinamis dan responsif, memungkinkan interaksi real-time tanpa perlu me-refresh halaman. Ini tidak hanya meningkatkan pengalaman pengguna, tetapi juga memungkinkan validasi form di sisi klien, yang dapat mengurangi beban server dan mempercepat respons aplikasi.
 
 
@@ -354,7 +354,7 @@ Dari segi performa, JavaScript memungkinkan pemrosesan data di sisi klien dan pe
 
 Ekosistem JavaScript yang kaya, dengan berbagai library dan framework seperti React, Vue, dan Angular, mempercepat dan mempermudah proses pengembangan. Dengan Node.js, JavaScript juga dapat digunakan di sisi server, memungkinkan pengembangan full-stack dengan satu bahasa pemrograman. Kemampuan manipulasi DOM JavaScript memungkinkan perubahan dinamis pada struktur dan gaya halaman web, sementara fitur-fitur seperti animasi dan efek visual dapat meningkatkan daya tarik visual aplikasi. 
 
-###Fungsi await ketika menggunakan fetch()
+### Fungsi await ketika menggunakan fetch()
 Penggunaan `await` ketika bekerja dengan `fetch()` memiliki peran krusial dalam penanganan operasi asynchronous di JavaScript. Fungsi utamanya adalah untuk menyinkronkan kode asynchronous, membuatnya lebih mudah dibaca dan dipahami. Ketika `await` digunakan, eksekusi fungsi async akan berhenti sampai Promise yang dikembalikan oleh `fetch()` selesai atau gagal. Ini memungkinkan pengembang untuk menulis kode yang menangani operasi jaringan seolah-olah itu adalah operasi synchronous, meskipun sebenarnya berjalan secara asynchronous di latar belakang.
 
 Tanpa menggunakan `await`, kode akan berjalan secara non-blocking, yang berarti eksekusi akan berlanjut tanpa menunggu `fetch()` selesai. Ini bisa menyebabkan masalah jika ada kode selanjutnya yang bergantung pada hasil dari operasi fetch. Dalam skenario tanpa `await`, pengembang harus mengandalkan metode `.then()` untuk menangani hasil Promise, yang dapat mengakibatkan kode yang lebih sulit dibaca, terutama jika ada banyak operasi asynchronous yang berurutan. Selain itu, penanganan error menjadi lebih rumit karena harus menggunakan `.catch()` alih-alih blok try-catch yang lebih intuitif.
@@ -362,7 +362,7 @@ Tanpa menggunakan `await`, kode akan berjalan secara non-blocking, yang berarti 
 
 Keuntungan lain dari penggunaan `await` adalah kemampuannya untuk secara otomatis mengekstrak nilai yang di-resolve oleh Promise. Ini berarti hasil dari operasi fetch dapat langsung digunakan tanpa perlu callback tambahan. Sebaliknya, tanpa `await`, nilai Promise tidak langsung tersedia dan harus ditangani di dalam callback `.then()`. Dalam konteks penanganan error, `await` memungkinkan penggunaan blok try-catch yang familiar untuk menangani kesalahan dalam operasi asynchronous, membuat penanganan error lebih straightforward dan konsisten dengan kode synchronous.
 
-###Mengapa perlu decorator csrf_exempt
+### Mengapa perlu decorator csrf_exempt
 Decorator `csrf_exempt` digunakan dalam Django untuk menonaktifkan perlindungan CSRF (Cross-Site Request Forgery) pada view tertentu. Dalam konteks AJAX POST, ada beberapa alasan mengapa Anda mungkin perlu menggunakan `csrf_exempt`:
 
 
@@ -374,7 +374,7 @@ Decorator `csrf_exempt` digunakan dalam Django untuk menonaktifkan perlindungan 
 
 Namun, penting untuk dicatat bahwa menonaktifkan perlindungan CSRF dapat meningkatkan risiko keamanan aplikasi Anda. CSRF adalah serangan di mana penyerang dapat membuat pengguna yang diautentikasi melakukan tindakan yang tidak diinginkan di aplikasi web. Oleh karena itu, penggunaan `csrf_exempt` harus dibatasi dan dipertimbangkan dengan hati-hati. Sebagai alternatif, Anda dapat memastikan bahwa token CSRF disertakan dalam permintaan AJAX dengan benar, misalnya dengan menyertakannya dalam header atau sebagai bagian dari data yang dikirim. Ini akan menjaga keamanan aplikasi Anda sambil tetap memungkinkan operasi AJAX POST.
 
-###Pembersihan data input
+### Pembersihan data input
 Pembersihan data input pengguna di backend adalah praktik penting dalam pengembangan aplikasi web yang aman dan andal. Meskipun validasi dan pembersihan data di frontend dapat meningkatkan pengalaman pengguna dengan memberikan umpan balik langsung, ada beberapa alasan mengapa pembersihan data juga harus dilakukan di backend:
 
 1. **Keamanan**: Frontend dapat dimanipulasi oleh pengguna yang berniat jahat. Mereka dapat mem-bypass validasi frontend dengan menggunakan alat pengembang browser atau mengirimkan permintaan langsung ke server. Oleh karena itu, backend harus memverifikasi dan membersihkan data untuk mencegah serangan seperti SQL injection, XSS (Cross-Site Scripting), dan lainnya.
@@ -383,7 +383,7 @@ Pembersihan data input pengguna di backend adalah praktik penting dalam pengemba
 
 3. **Pengendalian Pusat**: Backend memberikan satu titik kontrol untuk semua validasi dan pembersihan data, yang memudahkan pemeliharaan dan pembaruan aturan validasi. Jika ada perubahan dalam aturan validasi, Anda hanya perlu memperbarui backend, bukan setiap klien yang mungkin mengirimkan data.
 
-###Step
+### Step
 1. Menambahkan Pesan Error untuk Validasi Kesalahan pada Form Login
 view login mengirim pesan error menggunakan messages jika ada kesalahan.
 ```
